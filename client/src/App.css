@@ -52,3 +52,10 @@
   font-weight: 600;
   color: #1f2229;
 }
+
+.products-card-info{
+  display: flex;
+  flex-direction: row;
+  margin: 5px;
+  padding: 2px;
+}
