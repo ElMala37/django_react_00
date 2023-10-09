@@ -59,3 +59,13 @@
   margin: 5px;
   padding: 2px;
 }
+
+.single-product-info{
+  font-style: italic;
+  font-size: 25px;
+  font-weight: 400;
+  color:#282c34;
+  text-decoration: #282c34;
+  margin: 15px;
+  padding: 5px;
+}
