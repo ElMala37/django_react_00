@@ -28,9 +28,9 @@ const ShowProducts = () => {
                     <Card.Img variant="top" src={product.image} />
                     <Card.Body>
                         <Card.Title>{product.name}</Card.Title>
-                        <Card.Text>{product.price} €</Card.Text>
+                        <Card.Text className="product-price-info">${product.price}</Card.Text>
                         <Card.Text>{product.description}</Card.Text>
-                        <Card.Text>{product.category}</Card.Text>
+                        <Card.Text className="product-category-info">{product.category}</Card.Text>
                         <Link className="btn btn-primary" to={`/${product.id}/`}>Detail</Link>
                     </Card.Body>
                     </Card>

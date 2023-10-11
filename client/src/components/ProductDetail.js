@@ -1,12 +1,14 @@
 import React,{useState,useEffect}from 'react';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
+import {useNavigate} from 'react-router';
 
 const ProductDetail = () => {
 
     const [product, setProduct] = useState("")
 
     const { id } = useParams();
+    const navigate = useNavigate();
 
     
 
@@ -20,6 +22,11 @@ const ProductDetail = () => {
     },[id]//mettre l'id comme élément déclencheur enleve egalement le warning        
     )
 
+    const deleteProduct = async (id) => {
+        await axios.delete(`http://127.0.0.1:8000/api/${id}`)
+        navigate('/')
+    }
+
     return (
         <div>
             <h1>Product detail</h1>
@@ -30,7 +37,7 @@ const ProductDetail = () => {
                 <p>{product.description}</p>
                 <p>{product.category}</p>
                 <Link className="btn btn-primary m-2" to={`/${product.id}/update`}> Update </Link>
-                <Link className="btn btn-danger m-2"> Delete </Link>
+                <Link className="btn btn-danger m-2" onClick={()=>deleteProduct(product.id)}> Delete </Link>
             </div>
         </div>
     );
