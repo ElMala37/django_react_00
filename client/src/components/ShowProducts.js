@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
-import Button from 'react-bootstrap/Button';
+//import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
 
 const ShowProducts = () => {
 
@@ -19,7 +20,8 @@ const ShowProducts = () => {
     )
 
     return(
-        <div className="products-card-info">
+        <div>
+            <div className="products-card-info">
             {
                 products.map((product,index)=>(
                     <Card className="m-2 rounded shadow-lg" style={{ width: '22rem' }}>
@@ -29,13 +31,16 @@ const ShowProducts = () => {
                         <Card.Text>{product.price} €</Card.Text>
                         <Card.Text>{product.description}</Card.Text>
                         <Card.Text>{product.category}</Card.Text>
-                        <Button variant="primary">Show Detail</Button>
+                        <Link className="btn btn-primary" to={`/${product.id}/`}>Detail</Link>
                     </Card.Body>
                     </Card>
                 )  
                 )
             }
         </div>
+
+        </div>
+        
     );
 };
 
